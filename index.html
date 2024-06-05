@@ -103,7 +103,11 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      if (typeof firstNum != 'number' || typeof secondNum != 'number') {
+        console.error('Please enter a valid number');
+      } else{
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -128,24 +132,22 @@
       console.clear();
     });
     errorBtns[6].addEventListener('click', () => {
-      console.dir(document);
+      console.dir(errorBtns[6]);
     });
     errorBtns[7].addEventListener('click', () => {
       console.dirxml(document);
     });
     errorBtns[8].addEventListener('click', () => {
       console.group('This is a console group');
-      console.log('This is a console log inside a group');
-      console.log('This is another console log inside a group');
     });
     errorBtns[9].addEventListener('click', () => {
       console.groupEnd();
     });
     errorBtns[10].addEventListener('click', () => {
       console.table([
-        { name: 'John', age: 25 },
-        { name: 'Jane', age: 30 },
-        { name: 'Doe', age: 35 }
+        { name: 'Shilpa', age: 20 },
+        { name: 'Pooja', age: 21 },
+        { name: 'Divya', age: 26 }
       ]);
     });
     errorBtns[11].addEventListener('click', () => {
